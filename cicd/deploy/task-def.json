@@ -1,0 +1,77 @@
+{
+  "family": "sinergia-backend",
+  "containerDefinitions": [
+    {
+      "name": "app",
+      "image": "388252588223.dkr.ecr.eu-south-2.amazonaws.com/sinergia-task-image:2024-10-20-00-44-e97c525",
+      "cpu": 256,
+      "portMappings": [
+        {
+          "name": "app-80-tcp",
+          "containerPort": 80,
+          "hostPort": 80,
+          "protocol": "tcp",
+          "appProtocol": "http"
+        }
+      ],
+      "essential": true,
+      "environment": [
+        {
+          "name": "S3_BUCKET_BACK",
+          "value": "sinergia-backend"
+        }
+      ],
+      "environmentFiles": [],
+      "mountPoints": [],
+      "volumesFrom": [],
+      "secrets": [
+        {
+          "name": "SECURITY_JWT_SECRET",
+          "valueFrom": "arn:aws:secretsmanager:eu-south-2:388252588223:secret:sinergia-env-o0xrLF:SECURITY_JWT_SECRET::"
+        },
+        {
+          "name": "SECURITY_API_SECRET",
+          "valueFrom": "arn:aws:secretsmanager:eu-south-2:388252588223:secret:sinergia-env-o0xrLF:SECURITY_API_SECRET::"
+        },
+        {
+          "name": "DATABASE_URL",
+          "valueFrom": "arn:aws:secretsmanager:eu-south-2:388252588223:secret:sinergia-env-o0xrLF:DATABASE_URL::"
+        },
+        {
+          "name": "DATABASE_USERNAME",
+          "valueFrom": "arn:aws:secretsmanager:eu-south-2:388252588223:secret:sinergia-env-o0xrLF:DATABASE_USERNAME::"
+        },
+        {
+          "name": "DATABASE_PASSWORD",
+          "valueFrom": "arn:aws:secretsmanager:eu-south-2:388252588223:secret:sinergia-env-o0xrLF:DATABASE_PASSWORD::"
+        }
+      ],
+      "ulimits": [],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/sinergia-backend",
+          "awslogs-create-group": "true",
+          "awslogs-region": "eu-south-2",
+          "awslogs-stream-prefix": "ecs"
+        },
+        "secretOptions": []
+      },
+      "systemControls": []
+    }
+  ],
+  "taskRoleArn": "arn:aws:iam::388252588223:role/ecsTaskRole",
+  "executionRoleArn": "arn:aws:iam::388252588223:role/ecsTaskExecutionRole",
+  "networkMode": "awsvpc",
+  "volumes": [],
+  "placementConstraints": [],
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "cpu": "256",
+  "memory": "2048",
+  "runtimePlatform": {
+    "cpuArchitecture": "X86_64",
+    "operatingSystemFamily": "LINUX"
+  }
+}
