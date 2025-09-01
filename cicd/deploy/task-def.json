@@ -1,10 +1,10 @@
 {
-  "family": "sinergia-backend",
+  "family": "sinergia-prod-backend",
   "containerDefinitions": [
     {
       "name": "app",
-      "image": "388252588223.dkr.ecr.eu-south-2.amazonaws.com/sinergia-task-image:2024-10-20-00-44-e97c525",
-      "cpu": 256,
+      "image": "388252588223.dkr.ecr.eu-south-2.amazonaws.com/task-image:2025-08-31-21-11-9803192",
+      "cpu": 1024,
       "portMappings": [
         {
           "name": "app-80-tcp",
@@ -18,7 +18,7 @@
       "environment": [
         {
           "name": "S3_BUCKET_BACK",
-          "value": "sinergia-backend"
+          "value": "sinergia-prod-backend"
         }
       ],
       "environmentFiles": [],
@@ -27,30 +27,30 @@
       "secrets": [
         {
           "name": "SECURITY_JWT_SECRET",
-          "valueFrom": "arn:aws:secretsmanager:eu-south-2:388252588223:secret:sinergia-env-o0xrLF:SECURITY_JWT_SECRET::"
+          "valueFrom": "arn:aws:secretsmanager:eu-south-2:388252588223:secret:sinergia-prod-env-lGpG0b:SECURITY_JWT_SECRET::"
         },
         {
           "name": "SECURITY_API_SECRET",
-          "valueFrom": "arn:aws:secretsmanager:eu-south-2:388252588223:secret:sinergia-env-o0xrLF:SECURITY_API_SECRET::"
+          "valueFrom": "arn:aws:secretsmanager:eu-south-2:388252588223:secret:sinergia-prod-env-lGpG0b:SECURITY_API_SECRET::"
         },
         {
           "name": "DATABASE_URL",
-          "valueFrom": "arn:aws:secretsmanager:eu-south-2:388252588223:secret:sinergia-env-o0xrLF:DATABASE_URL::"
+          "valueFrom": "arn:aws:secretsmanager:eu-south-2:388252588223:secret:sinergia-prod-env-lGpG0b:DATABASE_URL::"
         },
         {
           "name": "DATABASE_USERNAME",
-          "valueFrom": "arn:aws:secretsmanager:eu-south-2:388252588223:secret:sinergia-env-o0xrLF:DATABASE_USERNAME::"
+          "valueFrom": "arn:aws:secretsmanager:eu-south-2:388252588223:secret:sinergia-prod-env-lGpG0b:DATABASE_USERNAME::"
         },
         {
           "name": "DATABASE_PASSWORD",
-          "valueFrom": "arn:aws:secretsmanager:eu-south-2:388252588223:secret:sinergia-env-o0xrLF:DATABASE_PASSWORD::"
+          "valueFrom": "arn:aws:secretsmanager:eu-south-2:388252588223:secret:sinergia-prod-env-lGpG0b:DATABASE_PASSWORD::"
         }
       ],
       "ulimits": [],
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
-          "awslogs-group": "/ecs/sinergia-backend",
+          "awslogs-group": "/ecs/sinergia-prod-backend",
           "awslogs-create-group": "true",
           "awslogs-region": "eu-south-2",
           "awslogs-stream-prefix": "ecs"
@@ -60,15 +60,15 @@
       "systemControls": []
     }
   ],
-  "taskRoleArn": "arn:aws:iam::388252588223:role/ecsTaskRole",
-  "executionRoleArn": "arn:aws:iam::388252588223:role/ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::388252588223:role/sinergia-prod-task-role",
+  "executionRoleArn": "arn:aws:iam::388252588223:role/sinergia-prod-task-execution-role",
   "networkMode": "awsvpc",
   "volumes": [],
   "placementConstraints": [],
   "requiresCompatibilities": [
     "FARGATE"
   ],
-  "cpu": "256",
+  "cpu": "1024",
   "memory": "2048",
   "runtimePlatform": {
     "cpuArchitecture": "X86_64",
