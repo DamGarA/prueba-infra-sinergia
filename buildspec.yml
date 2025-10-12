@@ -2,17 +2,21 @@ version: 0.2
 
 phases:
   install:
+    runtime-versions:
+      nodejs: 18
     commands:
-      - echo "Instalando Node y dependencias..."
-      - curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
-      - apt-get install -y nodejs
+      - echo "Instalando dependencias del sistema..."
+      - apt-get update
+      - apt-get install -y --no-install-recommends wine64 xvfb
       - npm install -g yarn
       - yarn install
+  pre_build:
+    commands:
+      - echo "Preparando build de Electron..."
   build:
     commands:
-      - echo "Construyendo app Electron..."
-      - yarn run build
-      - yarn run electron:package
+      - echo "Iniciando build de Electron para Windows (.exe)..."
+      - yarn electron:package --win nsis
   post_build:
     commands:
       - echo "Subiendo artefactos a S3..."
@@ -20,4 +24,4 @@ phases:
 
 artifacts:
   files:
-    - '**/*'
+    - dist/**/*
