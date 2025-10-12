@@ -1,0 +1,23 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "Instalando Node y dependencias..."
+      - curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+      - apt-get install -y nodejs
+      - npm install -g yarn
+      - yarn install
+  build:
+    commands:
+      - echo "Construyendo app Electron..."
+      - yarn run build
+      - yarn run electron:package
+  post_build:
+    commands:
+      - echo "Subiendo artefactos a S3..."
+      - aws s3 cp dist/ s3://prueba-electron-sinergia/ --recursive
+
+artifacts:
+  files:
+    - '**/*'
