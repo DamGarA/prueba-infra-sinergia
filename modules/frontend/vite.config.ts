@@ -1,43 +1,23 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import fs from "fs";
-import dotenv from "dotenv";
+import path from 'node:path'
+import tailwindcss from '@tailwindcss/vite'
+import react from '@vitejs/plugin-react-swc'
+import { defineConfig, loadEnv } from 'vite'
 
-const env = process.env.ENV?.toUpperCase() || "DEV";
+// https://vite.dev/config/
+export default defineConfig(({ mode }) => {
+  // Carga las variables de entorno según el modo (solo las que empiezan con VITE_)
+  loadEnv(mode, process.cwd(), 'VITE_')
 
-// Get environment variables
-let dotenvConfig;
-switch (env) {
-    case "PROD":
-        dotenvConfig = { path: ".env.prod" };
-        break;
-    case "QA":
-        dotenvConfig = { path: ".env.qa" };
-        break;
-    default:
-        dotenvConfig = { path: ".env.dev" };
-        break;
-}
-const { parsed } = dotenv.config(dotenvConfig);
-
-console.log("Loaded " + env + " environment\n");
-
-export default defineConfig({
-  plugins: [react()],
-  define: parsed,
-  build: {
-    outDir: "out",
-  },
-  server: env === "DEV" ? {
-    open: true,
-    port: 8901,
-    https:  {
-        key: fs.readFileSync(
-            process.env.HOME + "/.sinergia/ssl/localhost-key.pem",
-        ),
-        cert: fs.readFileSync(
-            process.env.HOME + "/.sinergia/ssl/localhost.pem",
-        ),
+  return {
+    base: './',
+    plugins: [react(), tailwindcss()],
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, './src/ui'),
+      },
     },
-  } : undefined,
+    build: {
+      outDir: 'dist-react',
+    },
+  }
 })

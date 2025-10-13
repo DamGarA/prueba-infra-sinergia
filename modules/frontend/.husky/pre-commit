@@ -1,0 +1,5 @@
+pnpm lint-staged
+
+pnpm build:react
+
+pnpm transpile:electron

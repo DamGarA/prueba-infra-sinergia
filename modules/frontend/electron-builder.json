@@ -1,0 +1,26 @@
+{
+    "appId": "com.fixriver.dashboard",
+    "productName": "FixRiver",
+    "directories": {
+        "output": "release-builds"
+    },
+    "files": [
+        "dist-react",
+        "dist-electron"
+    ],
+    "mac": {
+        "target": "dmg"
+    },
+    "win": {
+        "target": [
+            "nsis",
+            "portable",
+            "msi"
+        ],
+        "icon": "public/icons/win/256x256.ico"
+    },
+    "linux": {
+        "target": "AppImage",
+        "category": "Utility"
+    }
+}
