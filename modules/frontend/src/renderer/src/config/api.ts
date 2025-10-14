@@ -6,7 +6,7 @@ import { getCookie, setCookie } from '@renderer/lib/cookies'
 
 const api = axios.create({
   baseURL: env.SERVER_URL,
-  withCredentials: true,
+  withCredentials: true
 })
 
 const accessToken = getCookie($CookieKey.session_token)
@@ -37,7 +37,7 @@ api.interceptors.response.use(
       setCookie({
         name: $CookieKey.session_token,
         value: token,
-        maxAge: 60 * 60 * 24,
+        maxAge: 60 * 60 * 24
       })
       // Setear el token en el header
       originalRequest.headers.Authorization = `Bearer ${token}`

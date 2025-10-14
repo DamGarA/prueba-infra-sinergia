@@ -14,11 +14,11 @@ export const LoadSessionProvider = ({ children }: LoadSessionProviderProps) => {
   const {
     data: session,
     refetch,
-    isPending,
+    isPending
   } = useQuery({
     queryKey: [$QueryKey.session],
     queryFn: getSession,
-    enabled: false,
+    enabled: false
   })
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: false positive

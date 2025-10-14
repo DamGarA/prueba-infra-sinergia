@@ -4,10 +4,10 @@ export const Routes = {
   logIn: '/log-in',
   signUp: '/sign-up',
   user: {
-    profile: '/profile',
+    profile: '/profile'
   },
   forgotPassword: {
     home: '/forgot-password',
-    token: (token = ':token') => `/forgot-password/${token}`,
-  },
+    token: (token = ':token') => `/forgot-password/${token}`
+  }
 } as const

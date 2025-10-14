@@ -18,9 +18,13 @@ const Common = () => {
   )
 }
 export default function AppLayout(
-  { rolesAllowed, redirect, validate }: { rolesAllowed?: UserRole[]; redirect?: string; validate?: boolean } = {
+  {
+    rolesAllowed,
+    redirect,
+    validate
+  }: { rolesAllowed?: UserRole[]; redirect?: string; validate?: boolean } = {
     redirect: Routes.logIn,
-    validate: true,
+    validate: true
   }
 ) {
   if (validate === false) {

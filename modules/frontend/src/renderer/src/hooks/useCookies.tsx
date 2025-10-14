@@ -22,6 +22,6 @@ export default function useCookies() {
 
   return {
     cookies,
-    setCookie: setCookieHandler,
+    setCookie: setCookieHandler
   }
 }
