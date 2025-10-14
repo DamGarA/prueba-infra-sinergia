@@ -1,0 +1,3 @@
+cd modules/frontend
+npm run typecheck
+npx lint-staged --config lint-staged.config.ts

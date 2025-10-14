@@ -1,0 +1,28 @@
+{
+  "name": "sinergia-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sinergia monorepo - Frontend (Electron) & Backend (Java)",
+  "workspaces": [
+    "modules/frontend"
+  ],
+  "scripts": {
+    "prepare": "husky",
+    "dev": "npm run dev --workspace=modules/frontend",
+    "build": "npm run build --workspace=modules/frontend",
+    "lint": "npm run lint --workspace=modules/frontend",
+    "lint:fix": "npm run lint:fix --workspace=modules/frontend",
+    "format": "npm run format --workspace=modules/frontend",
+    "typecheck": "npm run typecheck --workspace=modules/frontend",
+    "frontend:dev": "npm run dev --workspace=modules/frontend",
+    "frontend:build": "npm run build --workspace=modules/frontend",
+    "frontend:start": "npm run start --workspace=modules/frontend"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}
