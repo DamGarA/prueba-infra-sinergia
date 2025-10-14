@@ -22,7 +22,7 @@ const SESSION_DAYS = 1
 const state = {
   session: null,
   status: $SessionStatus.unauthenticated,
-  isLoading: false,
+  isLoading: false
 }
 
 export const useSession = create<State & SessionActions>((set) => ({
@@ -38,12 +38,12 @@ export const useSession = create<State & SessionActions>((set) => ({
         expires,
         value: '',
         secure: true,
-        path: '/',
+        path: '/'
       })
       return {
         ...state,
         session: null,
-        status: $SessionStatus.unauthenticated,
+        status: $SessionStatus.unauthenticated
       }
     }),
   setSessionStatus: (status) => set({ status }),
@@ -60,18 +60,18 @@ export const useSession = create<State & SessionActions>((set) => ({
           expires,
           sameSite: 'strict',
           secure: true,
-          path: '/',
+          path: '/'
         })
       } else {
         setCookie({
           name: $CookieKey.session_token,
           value: sessionToken,
           secure: true,
-          path: '/',
+          path: '/'
         })
       }
       return {
-        ...currentState,
+        ...currentState
       }
-    }),
+    })
 }))

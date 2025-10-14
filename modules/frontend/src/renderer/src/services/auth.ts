@@ -13,17 +13,17 @@ export const refreshToken = async () => {
 
     if (status === $ResponseStatus.error) {
       return {
-        error: message as string,
+        error: message as string
       }
     }
 
     return {
-      data: response.data as string,
+      data: response.data as string
     }
   } catch (error) {
     console.error(' Error en refresh token:', error)
     return {
-      error: 'Error al refrescar el token',
+      error: 'Error al refrescar el token'
     }
   }
 }

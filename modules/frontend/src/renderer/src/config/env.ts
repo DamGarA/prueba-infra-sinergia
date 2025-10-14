@@ -3,10 +3,10 @@ import { object, url } from 'zod'
 
 const EnvSchema = object({
   VITE_SERVER_URL: url({
-    message: 'SERVER_URL must be a valid URL',
+    message: 'SERVER_URL must be a valid URL'
   }).min(1, {
-    message: 'SERVER_URL is required',
-  }),
+    message: 'SERVER_URL is required'
+  })
 })
 type Env = z.infer<typeof EnvSchema>
 
@@ -20,5 +20,5 @@ try {
 }
 
 export const env = {
-  SERVER_URL: envResult.VITE_SERVER_URL,
+  SERVER_URL: envResult.VITE_SERVER_URL
 }

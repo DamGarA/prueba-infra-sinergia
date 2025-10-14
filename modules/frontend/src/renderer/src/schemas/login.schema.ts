@@ -13,5 +13,5 @@ export const LogInSchema = zod.object({
     .regex(
       passwordRules,
       'Debe contener 8 caracteres, una mayúscula, una minúscula, un numero y un carácter especial: : ! @ # . * % & @'
-    ),
+    )
 })

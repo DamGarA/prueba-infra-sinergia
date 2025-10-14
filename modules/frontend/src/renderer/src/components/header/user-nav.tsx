@@ -10,7 +10,10 @@ export const UserNavar = () => {
 
   if (!session)
     return (
-      <Link className="flex items-center gap-x-2 font-medium text-gray-500 hover:text-blue-600" to={Routes.logIn}>
+      <Link
+        className="flex items-center gap-x-2 font-medium text-gray-500 hover:text-blue-600"
+        to={Routes.logIn}
+      >
         <PersonIcon />
         Log in
       </Link>

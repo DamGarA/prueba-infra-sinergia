@@ -8,24 +8,24 @@ export const logIn = async ({ email, password }: LogIn) => {
   try {
     const response = await axios.post(Services.auth.logIn, {
       email,
-      password,
+      password
     })
 
     const [status, message] = captureServerError(response)
 
     if (status === $ResponseStatus.error) {
       return {
-        error: message as string,
+        error: message as string
       }
     }
 
     return {
-      data: response.data,
+      data: response.data
     }
   } catch (error) {
     console.error(error)
     return {
-      error: 'Ha ocurrido un error al iniciar sesión',
+      error: 'Ha ocurrido un error al iniciar sesión'
     }
   }
 }

@@ -11,17 +11,17 @@ export const getSession = async () => {
 
     if (status === $ResponseStatus.error) {
       return {
-        error: message,
+        error: message
       }
     }
 
     return {
-      data: response.data,
+      data: response.data
     }
   } catch (error) {
     console.error(error)
     return {
-      error: 'Ha ocurrido un error al obtener el usuario',
+      error: 'Ha ocurrido un error al obtener el usuario'
     }
   }
 }
