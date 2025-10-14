@@ -6,6 +6,6 @@ export const UserRoutes = [
     async lazy() {
       const module = await import('@renderer/pages/profile')
       return { Component: module.default }
-    },
-  },
+    }
+  }
 ]

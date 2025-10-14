@@ -24,12 +24,14 @@ Sinergia Frontend es una aplicación de escritorio moderna desarrollada con Elec
 ## 🚀 Tecnologías
 
 ### Core
+
 - **Electron** v38.1.2 - Framework para aplicaciones de escritorio
 - **React** v19.1.1 - Biblioteca de UI
 - **TypeScript** v5.9.2 - Tipado estático
 - **Vite** v7.1.6 - Build tool y dev server
 
 ### UI & Styling
+
 - **TailwindCSS** v4.1.14 - Framework CSS utility-first
 - **Radix UI** - Componentes accesibles y sin estilos
 - **shadcn/ui** - Sistema de componentes reutilizables
@@ -37,19 +39,23 @@ Sinergia Frontend es una aplicación de escritorio moderna desarrollada con Elec
 - **class-variance-authority** - Gestión de variantes de componentes
 
 ### Estado y Datos
+
 - **Zustand** v5.0.8 - Gestión de estado global
 - **TanStack Query** v5.90.3 - Gestión de estado del servidor y caché
 - **Axios** v1.12.2 - Cliente HTTP
 
 ### Formularios y Validación
+
 - **React Hook Form** v7.65.0 - Gestión de formularios
 - **Zod** v4.1.12 - Validación de esquemas
 - **@hookform/resolvers** - Integración de validadores
 
 ### Routing
+
 - **React Router** v7.9.4 - Enrutamiento de la aplicación
 
 ### Otras Utilidades
+
 - **electron-updater** v6.3.9 - Actualizaciones automáticas
 - **sonner** v2.0.7 - Sistema de notificaciones toast
 
@@ -66,11 +72,13 @@ Antes de comenzar, asegúrate de tener instalado:
 ## 🔧 Instalación
 
 1. Clona el repositorio y navega al directorio del proyecto:
+
    ```bash
    cd modules/frontend
    ```
 
 2. Instala las dependencias:
+
    ```bash
    pnpm install
    ```
@@ -86,6 +94,7 @@ pnpm dev
 ```
 
 Este comando:
+
 - Inicia el servidor de desarrollo de Vite
 - Abre la aplicación Electron en modo desarrollo
 - Habilita Hot Module Replacement (HMR)
@@ -144,10 +153,12 @@ modules/frontend/
 ## 📜 Scripts Disponibles
 
 ### Desarrollo
+
 - `pnpm dev` - Inicia el servidor de desarrollo
 - `pnpm start` - Vista previa de la build
 
 ### Calidad de Código
+
 - `pnpm lint` - Ejecuta ESLint con caché
 - `pnpm format` - Formatea el código con Prettier
 - `pnpm typecheck` - Verifica tipos TypeScript (node + web)
@@ -155,6 +166,7 @@ modules/frontend/
 - `pnpm typecheck:web` - Verifica tipos solo para web
 
 ### Build
+
 - `pnpm build` - Compila el proyecto (typecheck + vite build)
 - `pnpm build:unpack` - Build sin empaquetar
 - `pnpm build:win` - Build para Windows
@@ -162,6 +174,7 @@ modules/frontend/
 - `pnpm build:linux` - Build para Linux
 
 ### Otros
+
 - `pnpm prepare` - Configura Husky para git hooks
 
 ## 🏗️ Construcción
@@ -177,21 +190,27 @@ Compila el proyecto y genera los archivos en `dist/` y `out/`.
 ### Build para Producción
 
 #### Windows
+
 ```bash
 pnpm build:win
 ```
+
 Genera un instalador `.exe` para Windows.
 
 #### macOS
+
 ```bash
 pnpm build:mac
 ```
+
 Genera un archivo `.dmg` para macOS.
 
 #### Linux
+
 ```bash
 pnpm build:linux
 ```
+
 Genera paquetes para distribuciones Linux (AppImage, deb, rpm, etc.).
 
 Los archivos generados se encuentran en el directorio `dist/`.
@@ -219,6 +238,7 @@ VITE_APP_NAME=Sinergia
 ### Linting y Formateo
 
 El proyecto utiliza:
+
 - **ESLint** con configuración para TypeScript y React
 - **Prettier** para formateo consistente
 - **Husky** + **lint-staged** para pre-commit hooks
@@ -228,6 +248,7 @@ Los archivos se formatean automáticamente antes de cada commit.
 ### Configuración de ESLint
 
 Basada en:
+
 - `@electron-toolkit/eslint-config-ts`
 - `@electron-toolkit/eslint-config-prettier`
 - Reglas específicas para React y React Hooks
@@ -241,6 +262,7 @@ Definida en `.prettierrc.yaml` con reglas consistentes para todo el equipo.
 ### Proceso Principal (Main)
 
 El proceso principal de Electron gestiona:
+
 - Creación y gestión de ventanas
 - Comunicación IPC (Inter-Process Communication)
 - Acceso a APIs nativas del sistema operativo
@@ -249,6 +271,7 @@ El proceso principal de Electron gestiona:
 ### Proceso Renderer (React)
 
 La aplicación React maneja:
+
 - Interfaz de usuario
 - Lógica de negocio del frontend
 - Gestión de estado con Zustand
@@ -257,6 +280,7 @@ La aplicación React maneja:
 ### Comunicación IPC
 
 La comunicación entre procesos se realiza de forma segura mediante:
+
 - Scripts de preload que exponen APIs específicas
 - Validación de mensajes entre procesos
 - Contexto aislado para mayor seguridad
@@ -270,6 +294,7 @@ La comunicación entre procesos se realiza de forma segura mediante:
 ### Routing
 
 React Router v7 maneja la navegación con:
+
 - Rutas definidas en `src/renderer/src/routes/`
 - Lazy loading de componentes
 - Protección de rutas según autenticación/autorización
@@ -279,6 +304,7 @@ React Router v7 maneja la navegación con:
 ### Visual Studio Code
 
 Extensiones recomendadas:
+
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - Linting en tiempo real
 - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) - Formateo automático
 - [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) - Mejor soporte TypeScript
@@ -286,6 +312,7 @@ Extensiones recomendadas:
 ### Configuración de VSCode
 
 El proyecto incluye configuración en `.vscode/` para:
+
 - Formateo automático al guardar
 - Integración con ESLint
 - Configuración de TypeScript
@@ -295,6 +322,7 @@ El proyecto incluye configuración en `.vscode/` para:
 ### Actualizaciones Automáticas
 
 La aplicación incluye `electron-updater` configurado para:
+
 - Verificar actualizaciones al iniciar
 - Descargar e instalar actualizaciones en segundo plano
 - Notificar al usuario cuando hay actualizaciones disponibles
@@ -325,12 +353,14 @@ Configurado en `tsconfig.json` y `components.json`.
 ## 🤝 Contribución
 
 1. Asegúrate de que el código pase todos los checks:
+
    ```bash
    pnpm lint
    pnpm typecheck
    ```
 
 2. Formatea el código antes de commitear:
+
    ```bash
    pnpm format
    ```

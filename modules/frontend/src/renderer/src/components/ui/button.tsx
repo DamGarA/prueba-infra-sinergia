@@ -10,27 +10,30 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: 'bg-primary text-white shadow-lg hover:shadow-primary/10 duration-200',
-        destructive: 'bg-destructive/70 text-destructive-foreground shadow-sm border border-destructive',
+        destructive:
+          'bg-destructive/70 text-destructive-foreground shadow-sm border border-destructive',
         outline: 'border border-neutral-800 shadow-sm hover:bg-neutral-950',
         secondary: 'bg-secondary text-secondary-foreground shadow-sm',
         ghost: 'hover:bg-background',
-        link: 'text-primary underline-offset-4 hover:underline',
+        link: 'text-primary underline-offset-4 hover:underline'
       },
       size: {
         default: 'h-9 px-4 py-2',
         sm: 'h-8 px-3 text-xs',
         lg: 'h-10 rounded-lg px-8',
-        icon: 'size-8',
-      },
+        icon: 'size-8'
+      }
     },
     defaultVariants: {
       variant: 'default',
-      size: 'default',
-    },
+      size: 'default'
+    }
   }
 )
 
-export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
   asChild?: boolean
   loading?: boolean | null
 }
@@ -41,7 +44,10 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     return (
       <Comp
-        className={cn(buttonVariants({ variant, size, className }), loading && 'flex gap-2 items-center justify-center')}
+        className={cn(
+          buttonVariants({ variant, size, className }),
+          loading && 'flex gap-2 items-center justify-center'
+        )}
         ref={ref}
         {...props}
         disabled={props?.disabled || (loading as boolean)}

@@ -12,7 +12,9 @@ export function MenuDesktop() {
             key={link.label}
             className={cn(
               'font-medium text-gray-500 hover:text-gray-400 sm:py-5 dark:text-neutral-400 dark:hover:text-neutral-500',
-              location.pathname.includes(link.href) ? 'text-blue-600 sm:py-6 dark:text-blue-500' : ''
+              location.pathname.includes(link.href)
+                ? 'text-blue-600 sm:py-6 dark:text-blue-500'
+                : ''
             )}
             to={link.href}
           >

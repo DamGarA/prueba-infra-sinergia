@@ -58,18 +58,18 @@ export const router = createBrowserRouter(
     {
       element: <AppLayout validate={false} />,
       children: AppRoutes,
-      HydrateFallback: AppFallback,
+      HydrateFallback: AppFallback
     },
     {
       // element: <AppLayout rolesAllowed={[$UserRole.user]} redirect={Routes.logIn} validate={false} />,
       element: <AppLayout validate={false} />,
       children: UserRoutes,
-      HydrateFallback: AppFallback,
+      HydrateFallback: AppFallback
     },
     {
       element: <AuthLayout />,
       children: AuthRoutes,
-      HydrateFallback: AppFallback,
+      HydrateFallback: AppFallback
     },
     {
       path: '*',
@@ -78,8 +78,8 @@ export const router = createBrowserRouter(
         const module = await import('@renderer/pages/404')
         return { Component: module.default }
       },
-      HydrateFallback: AppFallback,
-    },
+      HydrateFallback: AppFallback
+    }
   ],
   { basename: '/' }
 )

@@ -39,7 +39,9 @@ export const MenuMobile = () => {
                 key={link.label}
                 className={cn(
                   'font-medium text-gray-500 hover:text-gray-400 sm:py-6 dark:text-neutral-400 dark:hover:text-neutral-500',
-                  location.pathname.includes(link.href) ? 'text-blue-600 sm:py-6 dark:text-blue-500' : ''
+                  location.pathname.includes(link.href)
+                    ? 'text-blue-600 sm:py-6 dark:text-blue-500'
+                    : ''
                 )}
                 to={link.href}
               >
@@ -48,7 +50,10 @@ export const MenuMobile = () => {
             ))}
 
           {status === $SessionStatus.unauthenticated ? (
-            <Link to={Routes.logIn} className={cn(buttonVariants(), 'flex justify-center font-semibold')}>
+            <Link
+              to={Routes.logIn}
+              className={cn(buttonVariants(), 'flex justify-center font-semibold')}
+            >
               Iniciar sesión
             </Link>
           ) : (

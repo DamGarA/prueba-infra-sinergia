@@ -6,6 +6,6 @@ export const AppRoutes = [
     async lazy() {
       const module = await import('@renderer/pages/home')
       return { Component: module.default }
-    },
-  },
+    }
+  }
 ]

@@ -23,16 +23,16 @@ import type { LogIn } from '@renderer/types/user'
 
 export default function LogInForm() {
   const { mutateAsync, isPending } = useMutation({
-    mutationFn: logIn,
+    mutationFn: logIn
   })
 
   const { setSession, setSessionToken } = useSession()
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors }
   } = useForm<LogIn>({
-    resolver: zodResolver(LogInSchema),
+    resolver: zodResolver(LogInSchema)
   })
 
   const onSubmit: SubmitHandler<LogIn> = async (data) => {
@@ -55,7 +55,9 @@ export default function LogInForm() {
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="grid gap-6">
               <div className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
-                <span className="bg-card text-muted-foreground relative z-10 px-2">Bienvenido de vuelta</span>
+                <span className="bg-card text-muted-foreground relative z-10 px-2">
+                  Bienvenido de vuelta
+                </span>
               </div>
               <div className="grid gap-6">
                 <div className="grid gap-1">

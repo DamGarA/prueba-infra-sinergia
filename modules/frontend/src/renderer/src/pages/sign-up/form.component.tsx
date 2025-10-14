@@ -23,15 +23,15 @@ import type { SignUp } from '@renderer/types/user'
 export default function SignUpForm() {
   const navigate = useNavigate()
   const { mutateAsync, isPending } = useMutation({
-    mutationFn: signUp,
+    mutationFn: signUp
   })
 
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors }
   } = useForm<SignUp>({
-    resolver: zodResolver(SignUpSchema),
+    resolver: zodResolver(SignUpSchema)
   })
 
   const onSubmit: SubmitHandler<SignUp> = async (data) => {
@@ -61,25 +61,33 @@ export default function SignUpForm() {
                 <div className="col-span-2 flex flex-col gap-1">
                   <Label htmlFor="name">Nombre</Label>
                   <Input {...register('name')} placeholder="Nombre" />
-                  {errors.name && <span className="text-red-400 text-xs">{errors.name.message}</span>}
+                  {errors.name && (
+                    <span className="text-red-400 text-xs">{errors.name.message}</span>
+                  )}
                 </div>
                 {/* Email */}
                 <div className="col-span-2 flex flex-col gap-1">
                   <Label htmlFor="email">Email</Label>
                   <Input {...register('email')} placeholder="john@example.com" />
-                  {errors.email && <span className="text-red-400 text-xs">{errors.email.message}</span>}
+                  {errors.email && (
+                    <span className="text-red-400 text-xs">{errors.email.message}</span>
+                  )}
                 </div>
                 {/* Password */}
                 <div className="col-span-2 flex flex-col gap-1">
                   <Label htmlFor="password">Contraseña</Label>
                   <Input type="password" {...register('password')} placeholder="********" />
-                  {errors.password && <span className="text-red-400 text-xs">{errors.password.message}</span>}
+                  {errors.password && (
+                    <span className="text-red-400 text-xs">{errors.password.message}</span>
+                  )}
                 </div>
                 {/* Confirm Password */}
                 <div className="col-span-2 flex flex-col gap-1">
                   <Label htmlFor="_password">Repite la contraseña</Label>
                   <Input type="password" {...register('_password')} placeholder="********" />
-                  {errors._password && <span className="text-red-400 text-xs">{errors._password.message}</span>}
+                  {errors._password && (
+                    <span className="text-red-400 text-xs">{errors._password.message}</span>
+                  )}
                 </div>
 
                 <Button type="submit" className="col-span-2" loading={isPending}>
