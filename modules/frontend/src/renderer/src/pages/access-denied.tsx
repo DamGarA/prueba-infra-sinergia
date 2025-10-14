@@ -1,0 +1,24 @@
+import { Card, CardContent, CardHeader, CardTitle } from '@renderer/components/ui/card'
+import { Link } from '@renderer/components/ui/link'
+import { Routes } from '@renderer/routes/paths'
+
+const AccessDenied = () => {
+  return (
+    <div className="bg-gray-100 flex items-center justify-center h-screen">
+      <Card className="text-center max-w-md">
+        <CardHeader className="text-center">
+          <CardTitle className="text-9xl font-bold text-primary underline">403</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p className="text-2xl text-gray-600 mt-4">Acceso denegado</p>
+          <p className="text-gray-500 mt-2">No tienes permiso para acceder a esta página.</p>
+          <Link href={Routes.home} className="mt-4">
+            <span>Volver al inicio</span>
+          </Link>
+        </CardContent>
+      </Card>
+    </div>
+  )
+}
+
+export default AccessDenied
